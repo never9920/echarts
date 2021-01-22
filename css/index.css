@@ -215,9 +215,9 @@ header .showtime {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  z-index: 5;
   height: 10.125rem;
-  background-size: 100% 100%;
+  width: 100%;
 }
 @keyframes rotate1 {
   from {
@@ -233,5 +233,15 @@ header .showtime {
   }
   to {
     transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 42px !important;
+  }
+}
+@media screen and (min-width: 1920) {
+  html {
+    font-size: 80px !important;
   }
 }

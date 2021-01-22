@@ -217,14 +217,14 @@ header{
         opacity: 0.6;
         background-size: 100% 100%;
     }
-    .chart{
+    .chart {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        z-index: 5;
         height: 10.125rem;
-        background-size: 100% 100%;
-    }
+        width: 100%;
+      }
     @keyframes rotate1 {
         from{
             transform: translate(-50%,-50%)
@@ -246,3 +246,15 @@ header{
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    html {
+      font-size: 42px !important;
+    }
+  }
+  @media screen and (min-width: 1920) {
+    html {
+      font-size: 80px !important;
+    }
+  }
+  
