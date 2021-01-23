@@ -3,10 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background: url(../images/bg.jpg) no-repeat top center;
-  line-height: 1.15;
-}
 li {
   list-style: none;
 }
@@ -14,9 +10,20 @@ li {
   font-family: electronicFont;
   src: url(../font/DS-DIGIT.TTF);
 }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
+  background: url(../images/bg.jpg) no-repeat #000;
+  background-size: cover;
+  /* 行高是字体1.15倍 */
+  line-height: 1.15;
+}
 header {
+  position: relative;
   height: 1.25rem;
-  background: url(../images/head_bg.png) no-repeat;
+  background: url(../images/head_bg.png) no-repeat top center;
   background-size: 100% 100%;
 }
 header h1 {
@@ -25,20 +32,19 @@ header h1 {
   text-align: center;
   line-height: 1rem;
 }
-header .showtime {
+header .showTime {
   position: absolute;
+  top: 0;
   right: 0.375rem;
   line-height: 0.9375rem;
-  color: #fff;
   font-size: 0.25rem;
-  top: 0;
+  color: rgba(255, 255, 255, 0.7);
 }
 .mainbox {
-  display: flex;
   min-width: 1024px;
   max-width: 1920px;
-  margin: 0 auto;
   padding: 0.125rem 0.125rem 0;
+  display: flex;
 }
 .mainbox .column {
   flex: 3;
@@ -46,170 +52,145 @@ header .showtime {
 .mainbox .column:nth-child(2) {
   flex: 5;
   margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
 }
-.mainbox .panel {
+.panel {
   position: relative;
   height: 3.875rem;
-  border: 1px solid rgba(25, 186, 139, 0.15);
-  background: url(../images/line\(1\).png) rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png);
   padding: 0 0.1875rem 0.5rem;
   margin-bottom: 0.1875rem;
 }
-.mainbox .panel::before {
+.panel::before {
   position: absolute;
   top: 0;
   left: 0;
+  content: "";
   width: 10px;
   height: 10px;
-  border-left: 2px solid #02a6b5;
   border-top: 2px solid #02a6b5;
-  content: "";
+  border-left: 2px solid #02a6b5;
 }
-.mainbox .panel::after {
+.panel::after {
   position: absolute;
   top: 0;
   right: 0;
+  content: "";
   width: 10px;
   height: 10px;
-  border-right: 2px solid #02a6b5;
   border-top: 2px solid #02a6b5;
-  content: "";
+  border-right: 2px solid #02a6b5;
 }
-.mainbox .panel .footer {
+.panel .panel-footer {
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
 }
-.mainbox .panel .footer::before {
+.panel .panel-footer::before {
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
+  content: "";
   width: 10px;
   height: 10px;
-  border-left: 2px solid #02a6b5;
   border-bottom: 2px solid #02a6b5;
-  content: "";
+  border-left: 2px solid #02a6b5;
 }
-.mainbox .panel .footer::after {
+.panel .panel-footer::after {
   position: absolute;
   bottom: 0;
   right: 0;
+  content: "";
   width: 10px;
   height: 10px;
-  border-right: 2px solid #02a6b5;
   border-bottom: 2px solid #02a6b5;
-  content: "";
+  border-right: 2px solid #02a6b5;
 }
-.mainbox .panel h2 {
+.panel h2 {
   height: 0.6rem;
-  color: #fff;
   line-height: 0.6rem;
   text-align: center;
+  color: #fff;
   font-size: 0.25rem;
   font-weight: 400;
 }
-.mainbox .panel .chart {
+.panel h2 a {
+  margin: 0 0.1875rem;
+  color: #fff;
+  text-decoration: underline;
+}
+.panel .chart {
   height: 3rem;
 }
 .no {
   background: rgba(101, 132, 226, 0.1);
   padding: 0.1875rem;
 }
-.no .nohd {
+.no .no-hd {
   position: relative;
-  border: 1px solid rgba(25, 186, 139, 0.15);
+  border: 1px solid rgba(25, 186, 139, 0.17);
 }
-.no .nohd ul {
+.no .no-hd::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+  top: 0;
+  left: 0;
+}
+.no .no-hd::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+  right: 0;
+  bottom: 0;
+}
+.no .no-hd ul {
   display: flex;
 }
-.no .nohd ul li {
+.no .no-hd ul li {
+  position: relative;
   flex: 1;
+  text-align: center;
+  height: 1rem;
   line-height: 1rem;
   font-size: 0.875rem;
   color: #ffeb7b;
-  text-align: center;
-  font-family: "electronicFont";
+  padding: 0.05rem 0;
+  font-family: electronicFont;
+  font-weight: bold;
 }
-.no .nohd ul li:nth-child(1)::after {
+.no .no-hd ul li:first-child::after {
   content: "";
   position: absolute;
-  top: 25%;
   height: 50%;
   width: 1px;
-  background: rgba(8, 6, 6, 0.2);
-  right: 50%;
-}
-.no .nohd::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 10px;
-  border-left: 2px solid #02a6b5;
-  border-top: 2px solid #02a6b5;
-  content: "";
-}
-.no .nohd::after {
-  position: absolute;
-  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
   right: 0;
-  width: 30px;
-  height: 10px;
-  border-right: 2px solid #02a6b5;
-  border-bottom: 2px solid #02a6b5;
-  content: "";
+  top: 25%;
 }
-.no .nobd ul {
+.no .no-bd ul {
   display: flex;
 }
-.no .nobd ul li {
+.no .no-bd ul li {
   flex: 1;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.225rem;
   height: 0.5rem;
   line-height: 0.5rem;
+  text-align: center;
+  font-size: 0.225rem;
+  color: rgba(255, 255, 255, 0.7);
   padding-top: 0.125rem;
 }
 .map {
   position: relative;
   height: 10.125rem;
-}
-.map .map1 {
-  width: 6.475rem;
-  height: 6.475rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: url(../images/map.png);
-  opacity: 0.3;
-  background-size: 100% 100%;
-}
-.map .map2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8.0375rem;
-  height: 8.0375rem;
-  background: url(../images/lbx.png);
-  animation: rotate1 15s linear infinite;
-  opacity: 0.6;
-  background-size: 100% 100%;
-}
-.map .map3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 7.075rem;
-  height: 7.075rem;
-  background: url(../images/jt.png);
-  animation: rotate2 10s linear infinite;
-  opacity: 0.6;
-  background-size: 100% 100%;
 }
 .map .chart {
   position: absolute;
@@ -219,7 +200,34 @@ header .showtime {
   height: 10.125rem;
   width: 100%;
 }
-@keyframes rotate1 {
+.map .map1,
+.map .map2,
+.map .map3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6.475rem;
+  height: 6.475rem;
+  background: url(../images/map.png) no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.3;
+}
+.map .map2 {
+  width: 8.0375rem;
+  height: 8.0375rem;
+  background-image: url(../images/lbx.png);
+  opacity: 0.6;
+  animation: rotate 15s linear infinite;
+  z-index: 2;
+}
+.map .map3 {
+  width: 7.075rem;
+  height: 7.075rem;
+  background-image: url(../images/jt.png);
+  animation: rotate1 10s linear infinite;
+}
+@keyframes rotate {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
@@ -227,7 +235,7 @@ header .showtime {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-@keyframes rotate2 {
+@keyframes rotate1 {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
